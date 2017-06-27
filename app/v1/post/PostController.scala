@@ -15,8 +15,11 @@ case class PostFormInput(title: String, body: String)
   */
 class PostController @Inject()(
     action: PostAction,
-    handler: PostResourceHandler)(implicit ec: ExecutionContext)
+    handler: PostResourceHandler,
+    test: Test)(implicit ec: ExecutionContext)
     extends Controller {
+
+
 
   private val form: Form[PostFormInput] = {
     import play.api.data.Forms._
@@ -35,6 +38,11 @@ class PostController @Inject()(
         Ok(Json.toJson(posts))
       }
     }
+  }
+
+  def index2 = Action.async { implicit request =>
+    val resultingUsers: Future[Seq[Thing]] =  test.all()
+    resultingUsers.map(users => Ok(views.html.index2(users.head.s)))
   }
 
   def process: Action[AnyContent] = {

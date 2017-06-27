@@ -4,6 +4,7 @@ import javax.inject.{Inject, Singleton}
 
 import scala.concurrent.Future
 
+
 final case class PostData(id: PostId, title: String, body: String)
 
 class PostId private (val underlying: Int) extends AnyVal {

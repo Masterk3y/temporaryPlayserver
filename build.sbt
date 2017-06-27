@@ -6,6 +6,9 @@ scalaVersion := "2.11.11"
 
 libraryDependencies += "com.netaporter" %% "scala-uri" % "0.4.14"
 libraryDependencies += "net.codingwell" %% "scala-guice" % "4.1.0"
+//libraryDependencies += jdbc
+libraryDependencies += "org.postgresql" % "postgresql" % "42.1.1"
+libraryDependencies += "com.typesafe.play" %% "play-slick" % "2.1.0"
 
 // test dependencies
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % Test

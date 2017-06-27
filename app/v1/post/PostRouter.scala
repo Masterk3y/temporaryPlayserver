@@ -25,8 +25,13 @@ class PostRouter @Inject()(controller: PostController) extends SimpleRouter {
     case POST(p"/") =>
       controller.process
 
+    case GET(p"/test") =>
+      controller.index2
+
     case GET(p"/$id") =>
       controller.show(id)
+
+
   }
 
 }
