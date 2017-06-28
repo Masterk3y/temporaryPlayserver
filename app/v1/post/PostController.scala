@@ -42,7 +42,7 @@ class PostController @Inject()(
 
   def index2 = Action.async { implicit request =>
     val resultingUsers: Future[Seq[Thing]] =  test.all()
-    resultingUsers.map(users => Ok(views.html.index2(users.head.s)))
+    resultingUsers.map(users => Ok(views.html.index2(users.foldLeft("")(_+_))))
   }
 
   def process: Action[AnyContent] = {
